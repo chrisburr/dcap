@@ -20,6 +20,9 @@
  */
 #include <sys/types.h>
 #include <stdint.h>
+#ifndef WIN32
+#   include <arpa/inet.h>
+#endif
 
 #include "dcap_types.h"
 #include "ioTunnel.h"
@@ -39,10 +42,10 @@ int get_fin( struct vsp_node *);
 int get_ack(int , ConfirmationBlock * );
 
 
-#ifndef HAVE_NTOHLL
+#if !defined(ntohll) && !defined(HAVE_NTOHLL)
 uint64_t ntohll(uint64_t x);
-#endif /* HAVE_NTOHLL */
+#endif /* ntohll */
 
-#ifndef HAVE_HTONLL
+#if !defined(htonll) && !defined(HAVE_HTONLL)
 uint64_t htonll(uint64_t arg);
-#endif /* HAVE_HTONLL */
+#endif /* htonll */
