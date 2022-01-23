@@ -20,6 +20,8 @@
 #include <string.h>
 #include <sys/stat.h>
 
+#include "debug_level.h"
+
 #ifdef WIN32
 #	include "dcap_unix2win.h"
 #endif /* WIN32 */

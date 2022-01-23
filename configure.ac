@@ -122,6 +122,12 @@ AC_TYPE_UID_T
 AC_C_BIGENDIAN
 AC_CHECK_TYPES([long long])
 
+AC_EGREP_HEADER(
+    [_DARWIN_FEATURE_ONLY_64_BIT_INODE],
+    [sys/cdefs.h],
+    [AC_DEFINE(fstat64, fstat, [64-bit operations are the same as 32-bit])
+     AC_DEFINE(lstat64, lstat, [64-bit operations are the same as 32-bit])
+     AC_DEFINE(stat64, stat, [64-bit operations are the same as 32-bit])])
 
 dnl Store the compile flags prior to testing the presence.
 
